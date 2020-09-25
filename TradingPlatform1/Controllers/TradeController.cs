@@ -134,6 +134,9 @@ namespace TradingPlatform1.Controllers
                 data = data.Where(model => model.TradeType.Contains(tradetype));
             }
 
+            ViewBag.Count = data.ToList().Count();
+            ViewBag.Price = data.Sum(model => model.Price);
+
             return View(data.ToList());
         }
 

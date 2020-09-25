@@ -108,7 +108,6 @@ namespace TradingPlatform1.Controllers
                         context.SaveChanges();
                     }
                     ViewBag.Message = "Data Imported Successfully.";
-
                 }
                 catch (Exception ex)
                 {
@@ -139,6 +138,43 @@ namespace TradingPlatform1.Controllers
                 Price = double.Parse(row[4].ToString()),
             };
         }
+
+
+        //////////UPLOAD CSV FILE CODE - FOR THIS TO WORK, I HAD TO EDIT THE CSV 
+        //////////FILE TO HAVE ALL THE SAME HEADINGS AS TRADE 
+
+        //[HttpPost]
+        //public ActionResult UploadCSV(HttpPostedFileBase postedFile)
+        //{
+
+        //    if (postedFile != null)
+        //    {
+        //        try
+        //        {
+        //            CsvFileDescription csvFileDescription = new CsvFileDescription
+        //            {
+        //                SeparatorChar = ',',
+        //                FirstLineHasColumnNames = true
+        //            };
+        //            CsvContext csvContext = new CsvContext();
+        //            StreamReader streamReader = new StreamReader(postedFile.InputStream);
+        //            IEnumerable<Trade> list = csvContext.Read<Trade>(streamReader, csvFileDescription);
+        //            db.Trades.AddRange(list);
+        //            db.SaveChanges();
+        //            ViewBag.Message = "Data Imported Successfully.";
+
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ViewBag.Message = ex.Message;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        ViewBag.Message = "Please select the file first to upload.";
+        //    }
+        //    return View();
+        //}
 
 
     }
