@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TradingPlatform1.Models.Trade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instrument)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcessedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instrument)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcessedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Process Trade", "Update", new { id = item.TradeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TradeID }) |
+            @if (item.Status == "Processed")
+            {
+                @Html.ActionLink("View Contract Note", "ViewNote", new { id = item.TradeID })
+            }
+        </td>
+    </tr>
+}
+
+</table>

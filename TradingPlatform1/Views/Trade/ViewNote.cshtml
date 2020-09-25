@@ -1,0 +1,75 @@
+﻿@model TradingPlatform1.Models.Trade
+
+@{
+    ViewBag.Title = "ViewNote";
+}
+
+<h2>Contract Note</h2>
+
+<div>
+    <h4>Trade</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TradeType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instrument)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessedDate)
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.TradeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Instrument)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ProcessedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Download PDF", "DownloadPDF", new { id = Model.TradeID })
+            </td>
+        </tr>
+
+
+    </table>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

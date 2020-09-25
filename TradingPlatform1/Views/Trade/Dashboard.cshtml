@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TradingPlatform1.Models.Trade>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Trade Dashboard</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by trade type: @Html.DropDownList("tradetype", new SelectList(ViewBag.TradeType))
+        <input type="submit" value="Search" />
+        <a href="@Url.Action("Dashboard", "Trade")">See all</a>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instrument)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.ActionLink("Processed Date", "Dashboard", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TradeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TradeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instrument)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessedDate)
+            </td>
+        </tr>
+    }
+
+</table>

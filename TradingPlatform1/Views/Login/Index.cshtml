@@ -1,0 +1,25 @@
+﻿@model TradingPlatform1.Models.Client
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Client Login</h2>
+
+<div id="login-div">
+    @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(model => model.Username)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(model => model.Username, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(model => model.Password)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "Password" })</div>
+        </div><br />
+        <input type="submit" value="Login" class="btn btn-primary" />
+
+
+    }
+
+
+</div>

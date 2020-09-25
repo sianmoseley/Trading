@@ -1,0 +1,78 @@
+﻿@model TradingPlatform1.Models.Trade
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Process Trade</h2>
+
+<h3>Are you sure you want to process this trade?</h3>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TradeType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instrument)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessedDate)
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.TradeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Instrument)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ProcessedDate)
+            </td>
+        </tr>
+    </table>
+    </div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div class="form-actions no-color">
+                <input type="submit" value="Process" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+            <br />
+            <span style="color:red;">
+                @ViewBag.success
+            </span>
+        }
+    </div>
